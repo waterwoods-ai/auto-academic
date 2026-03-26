@@ -1,0 +1,49 @@
+{
+  "version": "1.0.0",
+  "topic": "",
+  "venue": "",
+  "created_at": "",
+  "current_stage": "INIT",
+  "stages": {
+    "INIT": { "status": "pending", "started_at": null, "completed_at": null },
+    "RESEARCH": { "status": "pending", "started_at": null, "completed_at": null, "mode": "full" },
+    "EXPERIMENT": {
+      "status": "pending",
+      "started_at": null,
+      "completed_at": null,
+      "inner_loop_iteration": 0,
+      "max_inner_iterations": 10,
+      "hypotheses": [],
+      "experiment_runs": []
+    },
+    "WRITE": { "status": "pending", "started_at": null, "completed_at": null, "draft_version": 0 },
+    "REVIEW": {
+      "status": "pending",
+      "started_at": null,
+      "completed_at": null,
+      "outer_loop_round": 0,
+      "max_outer_rounds": 5,
+      "escalation_count": 0,
+      "max_escalations": 1,
+      "decisions": []
+    },
+    "FINALIZE": { "status": "pending", "started_at": null, "completed_at": null }
+  },
+  "deliverables": {
+    "rq_brief": null,
+    "methodology": null,
+    "bibliography": null,
+    "synthesis": null,
+    "hypotheses": null,
+    "experiment_specs": [],
+    "experiment_results": [],
+    "claim_evaluation": null,
+    "paper_drafts": [],
+    "integrity_reports": [],
+    "review_reports": [],
+    "revision_roadmaps": [],
+    "responses_to_reviewers": [],
+    "final_paper": null,
+    "process_log": null
+  }
+}
