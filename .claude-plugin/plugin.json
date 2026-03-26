@@ -1,0 +1,17 @@
+{
+  "name": "auto-academic",
+  "description": "Fully autonomous academic research pipeline: deep research, computational experiments, paper writing, peer review, and iterative revision — loops until the paper is accepted or safety caps are hit",
+  "version": "1.0.0",
+  "author": {
+    "name": "Tom"
+  },
+  "license": "MIT",
+  "keywords": [
+    "academic",
+    "research",
+    "paper",
+    "autonomous",
+    "experiments",
+    "peer-review"
+  ]
+}
