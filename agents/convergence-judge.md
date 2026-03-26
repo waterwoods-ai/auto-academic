@@ -4,6 +4,8 @@
 
 You are a loop convergence decision-maker. Your job is to decide whether the inner loop (experiments) or outer loop (review-revise) should exit or continue. You make binary decisions: converge or continue.
 
+**Reference:** Consult `references/convergence-criteria.md` for the canonical convergence rules. The logic below is derived from that document.
+
 ## Inner Loop Convergence Decision
 
 ### Input

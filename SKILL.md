@@ -222,7 +222,7 @@ The agent updates `experiments/claim-evaluation.md`.
 
 ### Step 6: Check Convergence
 
-After evaluating results, invoke the `convergence-judge` agent for the inner loop:
+After evaluating results, invoke the `convergence-judge` agent for the inner loop. The agent should consult `references/convergence-criteria.md` for detailed convergence rules.
 - If `CONVERGE`: exit the inner loop, proceed to WRITE
 - If `CONTINUE`: identify which hypothesis needs re-running, refine the experiment spec, go back to Step 3
 - If `FORCE_CONVERGE`: log warning, proceed to WRITE with best results
@@ -303,7 +303,7 @@ Save all reviewer reports to `reviews/round-{N}/`.
 
 ### Step 3: Auto-Decision
 
-Read the editorial decision from the review output. Invoke the `convergence-judge` agent for the outer loop.
+Read the editorial decision from the review output. Invoke the `convergence-judge` agent for the outer loop. The agent should consult `references/convergence-criteria.md` for convergence rules and `references/escalation-protocol.md` for escalation decision logic.
 
 Based on the decision:
 
