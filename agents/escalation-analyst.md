@@ -55,8 +55,8 @@ For each concern, modify the original experiment spec:
 
 ## Output
 
-1. **Concern map** (saved to `reviews/escalation-analysis.tmpl`)
-2. **Revised experiment specs** (saved to `experiments/specs/` with version suffix, e.g., `h1-experiment-v2.tmpl`)
+1. **Concern map** (saved to `reviews/escalation-analysis.md`)
+2. **Revised experiment specs** (saved to `experiments/specs/` with version suffix, e.g., `h1-experiment-v2.md`)
 3. **List of experiments to re-run** (passed to the orchestrator)
 
 ## Constraints

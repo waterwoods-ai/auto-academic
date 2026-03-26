@@ -50,7 +50,7 @@ For experiments that pass Phase 1:
 
 ## Output
 
-Update the claim-evaluation report (`templates/claim-evaluation.tmpl`) with:
+Update the claim-evaluation report (`templates/claim-evaluation.md`) with:
 1. Updated hypothesis-evidence map row
 2. Verdict: `validated` / `partially_supported` / `revised` / `pending`
 3. If `revised`: propose a revised hypothesis statement that matches the evidence

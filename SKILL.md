@@ -54,7 +54,7 @@ Extract topic and venue from the user's message. If either is missing, infer fro
 
 ### Step 2: Venue Profile Lookup
 
-Read `references/venue-profiles.tmpl`. Match the user's venue to a profile category. If no match, use WebSearch to research the venue, then assign the closest category.
+Read `references/venue-profiles.md`. Match the user's venue to a profile category. If no match, use WebSearch to research the venue, then assign the closest category.
 
 Record the venue profile settings:
 - Citation style
@@ -81,7 +81,7 @@ Copy `templates/pipeline-state.json` to `${WORKSPACE}/pipeline-state.json`. Fill
 
 ### Step 5: Initialize Logging
 
-Copy `templates/process-log.tmpl` content to `${WORKSPACE}/process-log.tmpl`. Fill in topic, venue, timestamp.
+Copy `templates/process-log.md` content to `${WORKSPACE}/process-log.md`. Fill in topic, venue, timestamp.
 Copy `templates/results-tsv-header.tsv` to `${WORKSPACE}/experiments/results.tsv`.
 
 ### Step 6: Initialize Git
@@ -112,10 +112,10 @@ Trigger the `deep-research` skill in `full` mode with the topic. Provide:
 - The venue profile for calibrating research depth
 
 Wait for deep-research to complete. It produces:
-- RQ Brief -> save to `research/rq-brief.tmpl`
-- Methodology Blueprint -> save to `research/methodology.tmpl`
-- Annotated Bibliography -> save to `research/bibliography.tmpl`
-- Synthesis Report -> save to `research/synthesis.tmpl`
+- RQ Brief -> save to `research/rq-brief.md`
+- Methodology Blueprint -> save to `research/methodology.md`
+- Annotated Bibliography -> save to `research/bibliography.md`
+- Synthesis Report -> save to `research/synthesis.md`
 
 ### Step 2: Extract Hypotheses
 
@@ -129,7 +129,7 @@ For each claim, formulate a hypothesis:
 - Identify the independent and dependent variables
 - Specify the expected direction of effect
 
-Save to `research/hypotheses.tmpl` using this format:
+Save to `research/hypotheses.md` using this format:
 
 ```
 ## Hypotheses
@@ -160,10 +160,10 @@ Proceed immediately to Stage 2.
 ### Step 1: Plan Experiments
 
 Invoke the `experiment-planner` agent with:
-- `research/hypotheses.tmpl`
-- `research/methodology.tmpl`
+- `research/hypotheses.md`
+- `research/methodology.md`
 - Venue profile experiment expectations
-- `references/experiment-patterns.tmpl`
+- `references/experiment-patterns.md`
 
 The agent produces one experiment spec per hypothesis, saved to `experiments/specs/`.
 
@@ -218,7 +218,7 @@ After each successful run, invoke the `experiment-evaluator` agent with:
 - The experiment output
 - The run log
 
-The agent updates `experiments/claim-evaluation.tmpl`.
+The agent updates `experiments/claim-evaluation.md`.
 
 ### Step 6: Check Convergence
 
@@ -243,11 +243,11 @@ Proceed immediately to Stage 3.
 ### Step 1: Prepare Writing Materials
 
 Gather all materials for the paper-writing skill:
-- `research/rq-brief.tmpl` (research question and scope)
-- `research/methodology.tmpl` (methodology blueprint)
-- `research/bibliography.tmpl` (annotated bibliography)
-- `research/synthesis.tmpl` (synthesis report)
-- `experiments/claim-evaluation.tmpl` (hypothesis-evidence mapping)
+- `research/rq-brief.md` (research question and scope)
+- `research/methodology.md` (methodology blueprint)
+- `research/bibliography.md` (annotated bibliography)
+- `research/synthesis.md` (synthesis report)
+- `experiments/claim-evaluation.md` (hypothesis-evidence mapping)
 - `experiments/results/` (raw experiment outputs for tables and figures)
 - Venue profile (citation style, format, page limit)
 
@@ -260,7 +260,7 @@ Trigger the `academic-paper` skill in `full` mode. Provide all gathered material
 - Ground the Discussion in the actual experiment outcomes (not hypothetical)
 - Reference the claim-evaluation for each argument in the Discussion
 
-Save the output to `paper/draft-v1.tmpl`.
+Save the output to `paper/draft-v1.md`.
 
 ### Step 3: Log and Transition
 
@@ -285,7 +285,7 @@ Before submitting for review, run the `integrity_verification_agent` (from acade
 If integrity check fails:
 - Auto-fix citations and data references
 - Re-verify (max 3 rounds)
-- Save report to `integrity/pre-review-check.tmpl`
+- Save report to `integrity/pre-review-check.md`
 
 If integrity check passes after 3 rounds but still has issues: log warning, proceed anyway.
 
@@ -313,16 +313,16 @@ Based on the decision:
 
 **REVISE_AND_CONVERGE (Minor, non-structural):**
 - Invoke `academic-paper` in `revision` mode with the review comments
-- Save revised draft to `paper/draft-v{N+1}.tmpl`
-- Save response to reviewers to `reviews/response-to-reviewers/round-{N}-response.tmpl`
+- Save revised draft to `paper/draft-v{N+1}.md`
+- Save response to reviewers to `reviews/response-to-reviewers/round-{N}-response.md`
 - Run a `re-review` to confirm
 - If re-review returns Accept or Minor with no critical issues: proceed to FINALIZE
 - Otherwise: continue the loop
 
 **CONTINUE (Minor or Major, needs revision):**
 - Invoke `academic-paper` in `revision` mode with the review comments
-- Save revised draft to `paper/draft-v{N+1}.tmpl`
-- Save response to reviewers to `reviews/response-to-reviewers/round-{N}-response.tmpl`
+- Save revised draft to `paper/draft-v{N+1}.md`
+- Save response to reviewers to `reviews/response-to-reviewers/round-{N}-response.md`
 - Git commit: `git add paper/ reviews/ && git commit -m "feat: revision round {N} — addressing {decision} revision comments"`
 - Increment round counter
 - Go back to Step 1 (integrity check on revised draft)
@@ -361,7 +361,7 @@ Git commit after each round.
 Run `integrity_verification_agent` one final time on the accepted/force-finalized draft:
 - Must achieve 100% pass for citations and data accuracy
 - If any issues: auto-fix and re-verify (max 3 rounds)
-- Save report to `integrity/final-check.tmpl`
+- Save report to `integrity/final-check.md`
 
 ### Step 2: Format Conversion
 
@@ -369,11 +369,11 @@ Invoke `academic-paper` in `format-convert` mode:
 - Generate LaTeX output to `paper/latex/paper.tex`
 - Compile to PDF: `paper/latex/paper.pdf`
 - If the venue requires DOCX: also generate `paper/paper.docx`
-- Keep the Markdown version as `paper/draft-final.tmpl`
+- Keep the Markdown version as `paper/draft-final.md`
 
 ### Step 3: Process Summary
 
-Generate `process-log.tmpl` final section with:
+Generate `process-log.md` final section with:
 
 ```
 ## Summary
@@ -389,11 +389,11 @@ Generate `process-log.tmpl` final section with:
 
 ## Final Deliverables
 
-1. Paper: `paper/draft-final.tmpl` + `paper/latex/paper.pdf`
+1. Paper: `paper/draft-final.md` + `paper/latex/paper.pdf`
 2. Experiment code: `experiments/code/`
 3. Experiment results: `experiments/results.tsv`
 4. Review history: `reviews/`
-5. Process log: `process-log.tmpl`
+5. Process log: `process-log.md`
 ```
 
 ### Step 4: Final Commit
@@ -418,9 +418,9 @@ Deliverables:
 - Paper: {workspace}/paper/latex/paper.pdf
 - Code: {workspace}/experiments/code/
 - Results: {workspace}/experiments/results.tsv
-- Full log: {workspace}/process-log.tmpl
+- Full log: {workspace}/process-log.md
 
-{If force-finalized: "Note: Quality report attached — see integrity/final-check.tmpl for unresolved concerns."}
+{If force-finalized: "Note: Quality report attached — see integrity/final-check.md for unresolved concerns."}
 ```
 
 ---
