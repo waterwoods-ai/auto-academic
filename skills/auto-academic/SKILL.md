@@ -54,7 +54,7 @@ Extract topic and venue from the user's message. If either is missing, infer fro
 
 ### Step 2: Venue Profile Lookup
 
-Read `references/venue-profiles.md`. Match the user's venue to a profile category. If no match, use WebSearch to research the venue, then assign the closest category.
+Read `${CLAUDE_PLUGIN_ROOT}/skills/auto-academic/references/venue-profiles.md`. Match the user's venue to a profile category. If no match, use WebSearch to research the venue, then assign the closest category.
 
 Record the venue profile settings:
 - Citation style
@@ -73,7 +73,7 @@ mkdir -p "${WORKSPACE}"/{research,experiments/{specs,code,results},paper/latex,r
 
 ### Step 4: Initialize State
 
-Copy `templates/pipeline-state.json` to `${WORKSPACE}/pipeline-state.json`. Fill in:
+Copy `${CLAUDE_PLUGIN_ROOT}/skills/auto-academic/templates/pipeline-state.json` to `${WORKSPACE}/pipeline-state.json`. Fill in:
 - `topic`: the parsed topic
 - `venue`: the parsed venue
 - `created_at`: current timestamp
@@ -81,8 +81,8 @@ Copy `templates/pipeline-state.json` to `${WORKSPACE}/pipeline-state.json`. Fill
 
 ### Step 5: Initialize Logging
 
-Copy `templates/process-log.md` content to `${WORKSPACE}/process-log.md`. Fill in topic, venue, timestamp.
-Copy `templates/results-tsv-header.tsv` to `${WORKSPACE}/experiments/results.tsv`.
+Copy `${CLAUDE_PLUGIN_ROOT}/skills/auto-academic/templates/process-log.md` content to `${WORKSPACE}/process-log.md`. Fill in topic, venue, timestamp.
+Copy `${CLAUDE_PLUGIN_ROOT}/skills/auto-academic/templates/results-tsv-header.tsv` to `${WORKSPACE}/experiments/results.tsv`.
 
 ### Step 6: Initialize Git
 
@@ -163,7 +163,7 @@ Invoke the `experiment-planner` agent with:
 - `research/hypotheses.md`
 - `research/methodology.md`
 - Venue profile experiment expectations
-- `references/experiment-patterns.md`
+- `${CLAUDE_PLUGIN_ROOT}/skills/auto-academic/references/experiment-patterns.md`
 
 The agent produces one experiment spec per hypothesis, saved to `experiments/specs/`.
 
@@ -222,7 +222,7 @@ The agent updates `experiments/claim-evaluation.md`.
 
 ### Step 6: Check Convergence
 
-After evaluating results, invoke the `convergence-judge` agent for the inner loop. The agent should consult `references/convergence-criteria.md` for detailed convergence rules.
+After evaluating results, invoke the `convergence-judge` agent for the inner loop. The agent should consult `${CLAUDE_PLUGIN_ROOT}/skills/auto-academic/references/convergence-criteria.md` for detailed convergence rules.
 - If `CONVERGE`: exit the inner loop, proceed to WRITE
 - If `CONTINUE`: identify which hypothesis needs re-running, refine the experiment spec, go back to Step 3
 - If `FORCE_CONVERGE`: log warning, proceed to WRITE with best results
@@ -303,7 +303,7 @@ Save all reviewer reports to `reviews/round-{N}/`.
 
 ### Step 3: Auto-Decision
 
-Read the editorial decision from the review output. Invoke the `convergence-judge` agent for the outer loop. The agent should consult `references/convergence-criteria.md` for convergence rules and `references/escalation-protocol.md` for escalation decision logic.
+Read the editorial decision from the review output. Invoke the `convergence-judge` agent for the outer loop. The agent should consult `${CLAUDE_PLUGIN_ROOT}/skills/auto-academic/references/convergence-criteria.md` for convergence rules and `${CLAUDE_PLUGIN_ROOT}/skills/auto-academic/references/escalation-protocol.md` for escalation decision logic.
 
 Based on the decision:
 

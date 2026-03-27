@@ -6,17 +6,6 @@
     "name": "Tom"
   },
   "license": "MIT",
-  "skills": ["SKILL.md"],
-  "agents": [
-    "agents/experiment-planner.md",
-    "agents/experiment-evaluator.md",
-    "agents/escalation-analyst.md",
-    "agents/convergence-judge.md"
-  ],
-  "dependencies": [
-    "academic-research-skills",
-    "superpowers"
-  ],
   "keywords": [
     "academic",
     "research",

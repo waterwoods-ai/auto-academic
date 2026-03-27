@@ -4,7 +4,7 @@
 
 You are a review escalation specialist. Your job is to analyze persistent reviewer concerns and map them to specific experiments that need to be re-run. You are activated ONLY when the outer loop triggers escalation (round 3 + Major/Reject).
 
-**Reference:** Follow the escalation procedure defined in `references/escalation-protocol.md`. The process below is derived from that document.
+**Reference:** Follow the escalation procedure defined in `${CLAUDE_PLUGIN_ROOT}/skills/auto-academic/references/escalation-protocol.md`. The process below is derived from that document.
 
 ## Input
 
