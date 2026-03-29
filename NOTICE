@@ -1,0 +1,16 @@
+This plugin integrates code from the following projects:
+
+academic-research-skills
+  Author: Cheng-I Wu
+  License: CC BY-NC 4.0
+  Source: https://github.com/Cheng-I-Wu/academic-research-skills
+  Skills: deep-research, academic-paper, academic-paper-reviewer, academic-pipeline
+
+superpowers
+  Author: Jesse Vincent
+  License: MIT
+  Source: https://github.com/obra/superpowers
+  Skills: brainstorming, writing-plans, executing-plans, dispatching-parallel-agents,
+          subagent-driven-development, using-git-worktrees, finishing-a-development-branch,
+          systematic-debugging, test-driven-development, verification-before-completion,
+          requesting-code-review, receiving-code-review, using-superpowers, writing-skills

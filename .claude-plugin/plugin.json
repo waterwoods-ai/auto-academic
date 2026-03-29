@@ -1,7 +1,7 @@
 {
   "name": "auto-academic",
-  "description": "Fully autonomous academic research pipeline: deep research, computational experiments, paper writing, peer review, and iterative revision — loops until the paper is accepted or safety caps are hit",
-  "version": "1.0.0",
+  "description": "Autonomous academic research pipeline: deep research, computational experiments, paper writing, peer review, and iterative revision",
+  "version": "2.0.0",
   "author": {
     "name": "Tom"
   },
@@ -12,6 +12,9 @@
     "paper",
     "autonomous",
     "experiments",
-    "peer-review"
+    "peer-review",
+    "deep-research",
+    "tdd",
+    "debugging"
   ]
 }
