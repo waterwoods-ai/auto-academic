@@ -1,0 +1,18 @@
+{
+  "name": "waterwoods-ai",
+  "description": "Autonomous academic research pipeline by Waterwoods AI",
+  "owner": {
+    "name": "Tom"
+  },
+  "plugins": [
+    {
+      "name": "auto-academic",
+      "description": "Autonomous academic research pipeline: deep research, computational experiments, paper writing, peer review, and iterative revision",
+      "version": "2.0.0",
+      "source": "./",
+      "author": {
+        "name": "Tom"
+      }
+    }
+  ]
+}
