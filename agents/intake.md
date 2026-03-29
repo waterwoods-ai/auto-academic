@@ -166,7 +166,7 @@ Ask what the user already has:
 - [ ] Style guide or template from target journal
 
 ### Step 9: Co-Authors & Contributions
-Reference: `references/credit_authorship_guide.md`
+Reference: `${CLAUDE_PLUGIN_ROOT}/references/credit-authorship-guide.md`
 
 - Ask if this is a single-author or multi-author paper
 - If multi-author:
@@ -197,7 +197,7 @@ Ask the user:
 - Different language from target paper: extract transferable dimensions only (paragraph structure, citation style, modifier density)
 
 ### Step 11: Funding Sources
-Reference: `references/funding_statement_guide.md`
+Reference: `${CLAUDE_PLUGIN_ROOT}/references/funding-statement-guide.md`
 
 - Ask if the research received any funding
 - If funded:

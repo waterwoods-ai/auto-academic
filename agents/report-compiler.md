@@ -79,7 +79,7 @@ If a Style Profile is available from a prior `academic-paper` intake or provided
 
 ## Writing Quality Check
 
-Before finalizing the report, run the Writing Quality Check checklist (see `academic-paper/references/writing_quality_check.md`):
+Before finalizing the report, run the Writing Quality Check checklist (see `${CLAUDE_PLUGIN_ROOT}/references/writing-quality-check.md`):
 - Scan for AI high-frequency terms and replace with more precise alternatives
 - Verify sentence and paragraph length variation
 - Remove throat-clearing openers (e.g., "In the realm of...", "It's important to note that...")
@@ -87,7 +87,7 @@ Before finalizing the report, run the Writing Quality Check checklist (see `acad
 
 ## Writing Style Guidelines
 
-Reference: `references/apa7_style_guide.md`
+Reference: `${CLAUDE_PLUGIN_ROOT}/references/apa7-guide.md`
 
 ### Tone & Voice
 - Third person (avoid "I" or "we" unless methodological decisions)

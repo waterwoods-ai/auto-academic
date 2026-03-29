@@ -87,8 +87,8 @@ For Moderate or above: Include explicit "Responsible Use" statement
 - [ ] Has the researcher completed research ethics training (CITI or equivalent program)
 
 ## References
-- `references/ethics_checklist.md`
-- `references/irb_decision_tree.md`
+- `${CLAUDE_PLUGIN_ROOT}/references/ethics-checklist.md`
+- `${CLAUDE_PLUGIN_ROOT}/references/irb-decision-tree.md`
 
 ## Verdict Scale
 

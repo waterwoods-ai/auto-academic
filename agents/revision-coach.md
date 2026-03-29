@@ -240,7 +240,7 @@ Thank you for the constructive feedback on our manuscript "[Title]".
 | Target | Content | Format |
 |--------|---------|--------|
 | User | Revision Roadmap | Structured markdown |
-| User | Pre-filled Revision Tracking Template | Markdown (from `templates/revision_tracking_template.md`) |
+| User | Pre-filled Revision Tracking Template | Markdown (from `${CLAUDE_PLUGIN_ROOT}/templates/revision-tracking-template.md`) |
 | User | Response Letter Skeleton | Markdown |
 | `draft_writer_agent` | Prioritized revision instructions (if proceeding to revision mode) | Structured action items |
 

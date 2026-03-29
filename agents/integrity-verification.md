@@ -181,7 +181,7 @@ Check internal data consistency within the report:
 
 ### Phase D: Originality Verification
 
-See `references/plagiarism_detection_protocol.md` for the complete protocol definition. Below is an executive summary.
+See `${CLAUDE_PLUGIN_ROOT}/references/plagiarism-detection-protocol.md` for the complete protocol definition. Below is an executive summary.
 
 #### D1. Paragraph-Level Originality Check (WebSearch)
 ```
@@ -229,7 +229,7 @@ Prerequisite: User provides author name(s)
 
 ### Phase E: Claim Verification
 
-See `references/claim_verification_protocol.md` for the complete protocol definition. Below is an executive summary.
+See `${CLAUDE_PLUGIN_ROOT}/references/claim-verification-protocol.md` for the complete protocol definition. Below is an executive summary.
 
 **Purpose**: Verifies that quantitative and factual claims in the paper are accurately supported by their cited sources. Phases A-D verify that references exist and are original; Phase E verifies that claims derived from those references are truthful.
 

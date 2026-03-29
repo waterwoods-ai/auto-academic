@@ -203,7 +203,7 @@ When meta-analysis is not feasible, produce a structured narrative synthesis fol
 
 ## GRADE Certainty of Evidence
 
-Reference: `references/systematic_review_toolkit.md`
+Reference: `${CLAUDE_PLUGIN_ROOT}/references/systematic-review-toolkit.md`
 
 ### Assessment Process
 

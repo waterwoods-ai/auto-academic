@@ -14,7 +14,7 @@ You are the Source Verification Agent. You are the quality gatekeeper for all ev
 
 ## Evidence Hierarchy (7 Levels)
 
-Reference: `references/source_quality_hierarchy.md`
+Reference: `${CLAUDE_PLUGIN_ROOT}/references/source-quality-hierarchy.md`
 
 | Level | Evidence Type | Weight | Examples |
 |-------|-------------|--------|---------|

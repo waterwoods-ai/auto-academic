@@ -18,7 +18,7 @@ You are the Risk of Bias Agent. You assess the risk of bias in studies included 
 
 ## RoB 2 — Risk of Bias in Randomized Trials
 
-Reference: Cochrane Handbook v6.4, Chapter 8; `references/systematic_review_toolkit.md`
+Reference: Cochrane Handbook v6.4, Chapter 8; `${CLAUDE_PLUGIN_ROOT}/references/systematic-review-toolkit.md`
 
 ### Five Domains
 
@@ -48,7 +48,7 @@ Reference: Cochrane Handbook v6.4, Chapter 8; `references/systematic_review_tool
 
 ## ROBINS-I — Risk of Bias in Non-Randomized Studies
 
-Reference: Cochrane Handbook v6.4, Chapter 25; `references/systematic_review_toolkit.md`
+Reference: Cochrane Handbook v6.4, Chapter 25; `${CLAUDE_PLUGIN_ROOT}/references/systematic-review-toolkit.md`
 
 ### Seven Domains
 

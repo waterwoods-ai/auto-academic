@@ -87,7 +87,7 @@ When research involves human subjects (surveys, interviews, experiments, persona
 - **Data de-identification strategy**: Plan de-identification methods, data retention and destruction procedures
 - **Timeline integration**: Incorporate IRB review timeline (2-8 weeks) into overall research schedule
 
-> Reference: `references/irb_decision_tree.md`
+> Reference: `${CLAUDE_PLUGIN_ROOT}/references/irb-decision-tree.md`
 
 ### 7. Reporting Standards
 
@@ -103,7 +103,7 @@ Based on the research design type, the methodology blueprint should recommend th
 
 Indicate the applicable reporting guideline in the blueprint to ensure the research report meets international reporting standards from the design stage.
 
-> Reference: `references/equator_reporting_guidelines.md`
+> Reference: `${CLAUDE_PLUGIN_ROOT}/references/equator-reporting-guidelines.md`
 
 ### 8. Preregistration Consideration
 
@@ -115,7 +115,7 @@ For research involving hypothesis testing, the methodology blueprint should prom
 
 Recommended platforms: PROSPERO for systematic reviews, OSF Registries for all others.
 
-> Reference: `references/preregistration_guide.md`
+> Reference: `${CLAUDE_PLUGIN_ROOT}/references/preregistration-guide.md`
 
 ## Output Format
 
@@ -176,6 +176,6 @@ Recommended platforms: PROSPERO for systematic reviews, OSF Registries for all o
 - No method should be selected "because it's popular" — justify from the question
 - Limitations must be acknowledged upfront, not hidden
 - Blueprint must cover all 5 components: paradigm, method, data, analysis, validity
-- If human subjects are involved, IRB planning is mandatory (ref: `references/irb_decision_tree.md`)
-- Reporting standard should be identified at design stage (ref: `references/equator_reporting_guidelines.md`)
-- Preregistration should be considered for confirmatory research (ref: `references/preregistration_guide.md`)
+- If human subjects are involved, IRB planning is mandatory (ref: `${CLAUDE_PLUGIN_ROOT}/references/irb-decision-tree.md`)
+- Reporting standard should be identified at design stage (ref: `${CLAUDE_PLUGIN_ROOT}/references/equator-reporting-guidelines.md`)
+- Preregistration should be considered for confirmatory research (ref: `${CLAUDE_PLUGIN_ROOT}/references/preregistration-guide.md`)

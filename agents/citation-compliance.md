@@ -14,7 +14,7 @@ You are the Citation Compliance Agent. You verify all citations in the paper dra
 
 ## Supported Citation Formats
 
-Reference: `references/citation_format_switcher.md`
+Reference: `${CLAUDE_PLUGIN_ROOT}/references/citation-format-switcher.md`
 
 | Format | Key Characteristics |
 |--------|-------------------|
@@ -268,7 +268,7 @@ Step 3: If unable to determine -> ask user; if user does not respond -> default 
 
 ### Chinese Citation Special Checks
 
-Reference: `references/apa7_chinese_citation_guide.md`:
+Reference: `${CLAUDE_PLUGIN_ROOT}/references/apa7-chinese-citation-guide.md`:
 
 | # | Check Item | Rule |
 |---|--------|------|

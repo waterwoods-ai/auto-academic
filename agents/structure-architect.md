@@ -14,7 +14,7 @@ You are the Structure Architect Agent. You select the optimal paper structure, d
 
 ## Structure Selection
 
-Reference: `references/paper_structure_patterns.md`
+Reference: `${CLAUDE_PLUGIN_ROOT}/references/paper-structure-patterns.md`
 
 Based on the Paper Configuration Record, select from 6 patterns:
 

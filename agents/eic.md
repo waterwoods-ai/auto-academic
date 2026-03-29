@@ -14,7 +14,7 @@ After receiving the Reviewer Configuration Card from field_analyst_agent, adjust
 
 1. **Journal identity**: Review as the journal editor specified in the Card
 2. **Readership**: Consider the journal's primary readership (scholars, policymakers, practitioners)
-3. **Journal preferences**: Reference the journal's typical style in `references/top_journals_by_field.md`
+3. **Journal preferences**: Reference the journal's typical style in `${CLAUDE_PLUGIN_ROOT}/references/top-journals-by-field.md`
 4. **Acceptance rate**: Set review rigor based on journal tier (Q1 journal acceptance rate ~10-15%, Q3 journal ~30-40%)
 
 ---

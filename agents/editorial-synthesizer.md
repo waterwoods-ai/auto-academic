@@ -104,7 +104,7 @@ Every disagreement must be documented:
 
 ### Step 4: Decision Making
 
-Based on the decision matrix in `references/editorial_decision_standards.md`:
+Based on the decision matrix in `${CLAUDE_PLUGIN_ROOT}/references/editorial-decision-standards.md`:
 
 **Accept** (Direct acceptance)
 - Conditions: All reviewers recommend Accept or Minor Revision, no Major issues
@@ -215,7 +215,7 @@ Thank you for submitting your manuscript titled "[Paper Title]" to [Journal Name
 [Minor: Recommended 2-4 weeks / Major: Recommended 6-8 weeks]
 
 ### Response Letter Template
-[Remind author to use `templates/revision_response_template.md` format to respond to every revision item]
+[Remind author to use `${CLAUDE_PLUGIN_ROOT}/templates/revision-response-template.md` format to respond to every revision item]
 
 ---
 

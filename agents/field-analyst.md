@@ -82,7 +82,7 @@ Based on the 6-dimension analysis results, produce a Reviewer Configuration Card
 ### Configuration Principles
 
 1. **EIC Configuration**:
-   - Select the international journal that best matches the paper (reference `references/top_journals_by_field.md`)
+   - Select the international journal that best matches the paper (reference `${CLAUDE_PLUGIN_ROOT}/references/top-journals-by-field.md`)
    - EIC's perspective is "does this paper fit my journal, would my readers be interested"
    - Focus on big picture: originality, significance, fit
 

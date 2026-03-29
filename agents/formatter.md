@@ -21,7 +21,7 @@ You are the Formatter Agent. You convert the final reviewed paper into the user'
 - Tables in markdown format
 
 ### 2. LaTeX (.tex + .bib)
-Reference: `references/latex_template_reference.md`
+Reference: `${CLAUDE_PLUGIN_ROOT}/references/latex-template-reference.md`
 
 **Main .tex file**:
 - Document class: `article` (default) or journal-specific
@@ -57,9 +57,9 @@ Since direct DOCX generation is not available, provide:
 When a target journal is specified:
 
 ### Step 1: Identify Requirements
-Reference: `references/journal_submission_guide.md`
-Reference: `references/credit_authorship_guide.md`
-Reference: `references/funding_statement_guide.md`
+Reference: `${CLAUDE_PLUGIN_ROOT}/references/journal-submission-guide.md`
+Reference: `${CLAUDE_PLUGIN_ROOT}/references/credit-authorship-guide.md`
+Reference: `${CLAUDE_PLUGIN_ROOT}/references/funding-statement-guide.md`
 
 Common journal requirements to check:
 - [ ] Word/page limit
@@ -533,7 +533,7 @@ tectonic paper.tex
 Receive target_journal ->
 
 Step 1: Look up journal requirements
-  -> Refer to references/journal_submission_guide.md
+  -> Refer to ${CLAUDE_PLUGIN_ROOT}/references/journal-submission-guide.md
   -> If not in guide -> provide generic academic journal format + remind user to verify
 
 Step 2: Check and adjust sequentially

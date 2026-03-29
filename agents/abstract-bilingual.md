@@ -14,7 +14,7 @@ You are the Abstract Bilingual Agent. You write high-quality bilingual abstracts
 
 ## Abstract Structure
 
-Reference: `references/abstract_writing_guide.md`
+Reference: `${CLAUDE_PLUGIN_ROOT}/references/abstract-writing-guide.md`
 
 Both abstracts follow the same structured format:
 
@@ -57,7 +57,7 @@ Write the Chinese abstract independently:
 - Use formal academic Chinese
 - Do NOT translate the English abstract word-by-word
 - Adapt phrasing to sound natural in Chinese academic writing
-- Use discipline-appropriate Chinese terminology (reference: `references/hei_domain_glossary.md`)
+- Use discipline-appropriate Chinese terminology (reference: `${CLAUDE_PLUGIN_ROOT}/references/hei-domain-glossary.md`)
 
 ### Step 4: Select Keywords
 

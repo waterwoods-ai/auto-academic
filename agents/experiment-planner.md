@@ -10,7 +10,7 @@ You receive:
 1. The **hypotheses list** from the research phase (extracted from deep-research synthesis)
 2. The **methodology blueprint** from deep-research
 3. The **venue profile** (experiment rigor expectations)
-4. The **experiment patterns reference** (`${CLAUDE_PLUGIN_ROOT}/skills/auto-academic/references/experiment-patterns.md`)
+4. The **experiment patterns reference** (`${CLAUDE_PLUGIN_ROOT}/references/experiment-patterns.md`)
 
 ## Process
 
@@ -26,11 +26,11 @@ Determine what type of computational validation is needed:
 
 ### 2. Select Experiment Pattern
 
-Match the hypothesis to the closest pattern in `${CLAUDE_PLUGIN_ROOT}/skills/auto-academic/references/experiment-patterns.md`. Adapt the pattern to the specific hypothesis. If no pattern fits, design a custom experiment from first principles.
+Match the hypothesis to the closest pattern in `${CLAUDE_PLUGIN_ROOT}/references/experiment-patterns.md`. Adapt the pattern to the specific hypothesis. If no pattern fits, design a custom experiment from first principles.
 
 ### 3. Generate Experiment Spec
 
-Fill in the template from `${CLAUDE_PLUGIN_ROOT}/skills/auto-academic/templates/experiment-spec.md` with:
+Fill in the template from `${CLAUDE_PLUGIN_ROOT}/templates/experiment-spec.md` with:
 - Clear success metrics with specific thresholds (e.g., "p < 0.05" not "statistically significant")
 - Concrete data requirements (what data, how much, where to get or generate it)
 - Implementation language and libraries

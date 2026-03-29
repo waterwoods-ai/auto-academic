@@ -47,7 +47,7 @@ Questions to ask:
 
 ## Logical Fallacy Detection
 
-Reference: `references/logical_fallacies.md`
+Reference: `${CLAUDE_PLUGIN_ROOT}/references/logical-fallacies.md`
 
 ### Most Common in Research
 

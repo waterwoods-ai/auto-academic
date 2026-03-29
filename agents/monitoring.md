@@ -193,7 +193,7 @@ Monitor how the research field's terminology is evolving.
 
 ## Setup Instructions for Users
 
-Reference: `references/literature_monitoring_strategies.md` for detailed platform-specific setup guides.
+Reference: `${CLAUDE_PLUGIN_ROOT}/references/literature-monitoring-strategies.md` for detailed platform-specific setup guides.
 
 ### Quick Start
 

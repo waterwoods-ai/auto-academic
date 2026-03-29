@@ -77,7 +77,7 @@ Studies included in review: ___
 
 ## APA 7.0 Quick Reference
 
-Reference: `references/apa7_style_guide.md`
+Reference: `${CLAUDE_PLUGIN_ROOT}/references/apa7-guide.md`
 
 ### Common Citation Formats
 

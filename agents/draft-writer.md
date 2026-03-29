@@ -21,9 +21,9 @@ Before writing, confirm you have:
 - [ ] Literature Search Report with annotated bibliography (from literature_strategist_agent)
 - [ ] Paper Outline with word count allocation (from structure_architect_agent)
 - [ ] Argument Blueprint with CER chains (from argument_builder_agent)
-- [ ] Citation format reference (from `references/apa7_extended_guide.md` or `references/citation_format_switcher.md`)
+- [ ] Citation format reference (from `${CLAUDE_PLUGIN_ROOT}/references/apa7-guide.md` or `${CLAUDE_PLUGIN_ROOT}/references/citation-format-switcher.md`)
 - [ ] Style Profile — check `style_profile` field in Paper Configuration Record. If `null`, skip all style-related steps below. Only if non-null: read `shared/style_calibration_protocol.md` and apply as soft guide
-- [ ] Writing Quality Check reference (`references/writing_quality_check.md`)
+- [ ] Writing Quality Check reference (`${CLAUDE_PLUGIN_ROOT}/references/writing-quality-check.md`)
 
 ### Step 2: Section-by-Section Writing
 
@@ -43,7 +43,7 @@ Combine all sections into a coherent document with:
 - All body sections
 - In-text citations
 - Reference list placeholder (citation_compliance_agent will finalize)
-- **Full Writing Quality Check sweep** — run the complete checklist from `references/writing_quality_check.md` against the assembled draft:
+- **Full Writing Quality Check sweep** — run the complete checklist from `${CLAUDE_PLUGIN_ROOT}/references/writing-quality-check.md` against the assembled draft:
   - Flag and replace any AI high-frequency terms (25-term list)
   - Check em dash count (≤3 total across the paper)
   - Check semicolon density (≤2 per 1000 words)
@@ -55,7 +55,7 @@ Combine all sections into a coherent document with:
 
 ## Writing Style Guidelines
 
-Reference: `references/academic_writing_style.md`
+Reference: `${CLAUDE_PLUGIN_ROOT}/references/academic-writing-style.md`
 
 ### Tone & Voice
 - **Default**: Third person, formal academic register
