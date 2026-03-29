@@ -5,11 +5,11 @@ A Claude Code plugin that runs a fully autonomous academic research pipeline. Gi
 ## How it works
 
 ```
-INIT → RESEARCH → EXPERIMENT → WRITE → REVIEW → FINALIZE
-         ↑                        |
-         └── inner loop ──────────┘  (research + experiments, keep/discard)
-                                  |
-                           REVIEW ←→ REVISE  (outer loop, tiered escalation)
+INIT → RESEARCH → EXPERIMENT → WRITE → INTEGRITY → REVIEW → FINAL_INTEGRITY → FINALIZE
+         ↑                                           |
+         └── inner loop (autonomous) ────────────────┘
+                                                     |
+                                              REVIEW ←→ REVISE (outer loop)
 ```
 
 **Inner loop**: Deep research + computational experiments with autoresearch-style keep/discard decisions. A convergence judge exits the loop when all hypotheses have evidence.
@@ -20,17 +20,13 @@ INIT → RESEARCH → EXPERIMENT → WRITE → REVIEW → FINALIZE
 
 ## Requirements
 
-This plugin depends on two other Claude Code plugins:
+This is a self-contained plugin. All required skills, agents, references, and templates are bundled. No external plugin dependencies.
 
-- **[academic-research-skills](https://github.com/Cheng-I-Wu/academic-research-skills)** — provides `deep-research`, `academic-paper`, `academic-paper-reviewer` skills
-- **[superpowers](https://github.com/gstack-com/claude-code-power-pack)** — provides `writing-plans`, `executing-plans`, `dispatching-parallel-agents` skills
-
-Install both before using auto-academic.
+See the `NOTICE` file for upstream attribution (academic-research-skills, superpowers).
 
 ## Installation
 
-1. Install the required plugins above.
-2. Copy the `auto-academic/` directory (excluding `.git/`) to your Claude Code plugins directory:
+Copy the `auto-academic/` directory (excluding `.git/`) to your Claude Code plugins directory:
 
 ```bash
 cp -r auto-academic/ ~/.claude/plugins/auto-academic/
@@ -54,29 +50,30 @@ The pipeline adapts rigor to the venue tier (Tier 1 = NeurIPS/ICML, Tier 5 = wor
 
 ```
 auto-academic/
-├── .claude-plugin/plugin.json       # Plugin manifest
-├── commands/
-│   └── auto-academic.md             # /auto-academic slash command
-├── agents/
-│   ├── experiment-planner.md        # Designs computational experiments
-│   ├── experiment-evaluator.md      # Assesses results (keep/discard/refine)
-│   ├── convergence-judge.md         # Decides when loops should exit
-│   └── escalation-analyst.md        # Handles review escalation
-└── skills/
-    └── auto-academic/
-        ├── SKILL.md                 # Main orchestrator
-        ├── references/              # Canonical rules (single source of truth)
-        ├── templates/               # State & spec templates
-        └── examples/                # Pipeline walkthrough demos
+├── .claude-plugin/plugin.json
+├── commands/auto-academic.md
+├── hooks/
+│   ├── hooks.json
+│   ├── run-hook.cmd
+│   └── session-start
+├── skills/                    # 19 skills (auto-academic + academic + superpowers)
+├── agents/                    # 40 agents consolidated
+├── references/                # ~48 references (deduplicated)
+├── templates/                 # ~27 templates
+├── examples/                  # Examples organized by skill
+├── shared/                    # Inter-skill utilities
+├── autoresearch/              # Reference implementation (upstream)
+├── NOTICE                     # Upstream attribution
+└── LICENSE
 ```
 
 ## Examples
 
-The `skills/auto-academic/examples/` directory contains three pipeline traces:
+The `examples/` directory contains pipeline traces organized by skill:
 
-- **education-research.md** — Tier 3 SSCI journal, 3 review rounds
-- **cs-ml-research.md** — Tier 1 conference (ACL), baseline + ablations
-- **mixed-methods.md** — Tier 3 with escalation workflow demonstration
+- **auto-academic/education-research.md** — Tier 3 SSCI journal, 3 review rounds
+- **auto-academic/cs-ml-research.md** — Tier 1 conference (ACL), baseline + ablations
+- **auto-academic/mixed-methods.md** — Tier 3 with escalation workflow demonstration
 
 ## License
 
