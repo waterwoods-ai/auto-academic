@@ -12,7 +12,7 @@ Universal deep research tool — a domain-agnostic 13-agent team for rigorous ac
 
 **v2.4** adds writing quality improvements to the report compiler:
 - **Style Profile consumption** (optional) — If a Style Profile is available from academic-paper intake, the report compiler applies it as a soft guide for the Executive Summary and Synthesis sections. Discipline conventions and report objectivity take priority.
-- **Writing Quality Check** — The report compiler runs a writing quality checklist before finalizing: flags AI-typical overused terms, checks sentence/paragraph length variation, removes throat-clearing openers. See `academic-paper/references/writing_quality_check.md`.
+- **Writing Quality Check** — The report compiler runs a writing quality checklist before finalizing: flags AI-typical overused terms, checks sentence/paragraph length variation, removes throat-clearing openers. See `${CLAUDE_PLUGIN_ROOT}/references/writing-quality-check.md`.
 
 ## Quick Start
 
@@ -109,7 +109,7 @@ Not sure? Start with `socratic` — it will help you figure out what you need.
 
 ## Mode Selection Guide
 
-See `references/mode_selection_guide.md` for the detailed guide.
+See `${CLAUDE_PLUGIN_ROOT}/references/mode-selection-guide.md` for the detailed guide.
 
 ```
 User Input
@@ -250,8 +250,8 @@ User: "Research [topic]"
 
 Core principle: From the perspective of a Q1 international journal editor-in-chief, guide users to clarify their research questions through Socratic questioning. Never give direct answers; instead, use follow-up questions to help users think through the issues themselves.
 
-See `agents/socratic_mentor_agent.md` for the detailed agent definition.
-See `references/socratic_questioning_framework.md` for the questioning framework.
+See `${CLAUDE_PLUGIN_ROOT}/agents/research-socratic-mentor` for the detailed agent definition.
+See `${CLAUDE_PLUGIN_ROOT}/references/socratic-questioning-framework.md` for the questioning framework.
 
 ```
 User: "Guide my research on [topic]"
@@ -318,8 +318,8 @@ User: "Guide my research on [topic]"
 
 Full PRISMA-compliant systematic literature review with optional meta-analysis. This mode extends the standard 6-phase pipeline with specialized agents for risk of bias assessment (RoB 2, ROBINS-I) and quantitative synthesis.
 
-See `agents/risk_of_bias_agent.md` and `agents/meta_analysis_agent.md` for detailed agent definitions.
-See `references/systematic_review_toolkit.md` for the Cochrane/PRISMA/GRADE reference guide.
+See `${CLAUDE_PLUGIN_ROOT}/agents/risk-of-bias` and `${CLAUDE_PLUGIN_ROOT}/agents/meta-analysis` for detailed agent definitions.
+See `${CLAUDE_PLUGIN_ROOT}/references/systematic-review-toolkit.md` for the Cochrane/PRISMA/GRADE reference guide.
 
 ```
 User: "Systematic review of [topic]" / "Meta-analysis of [topic]"
@@ -331,7 +331,7 @@ User: "Systematic review of [topic]" / "Meta-analysis of [topic]"
      |   - Explicit eligibility criteria (inclusion/exclusion)
      |
      |-> [research_architect_agent] -> Systematic Review Protocol
-     |   - Protocol follows PRISMA-P 2015 (templates/prisma_protocol_template.md)
+     |   - Protocol follows PRISMA-P 2015 (${CLAUDE_PLUGIN_ROOT}/templates/prisma-protocol.md)
      |   - Pre-specified subgroup analyses and sensitivity analyses
      |   - Risk of bias tool selection (RoB 2 / ROBINS-I)
      |   - Meta-analysis feasibility pre-assessment
@@ -382,7 +382,7 @@ User: "Systematic review of [topic]" / "Meta-analysis of [topic]"
 === Phase 4: COMPOSITION ===
      |
      +-> [report_compiler_agent] -> PRISMA 2020 Report
-         - Uses templates/prisma_report_template.md
+         - Uses ${CLAUDE_PLUGIN_ROOT}/templates/prisma-report.md
          - All 27 PRISMA items mapped to sections
          - Study characteristics table
          - Risk of bias summary table
@@ -426,7 +426,7 @@ User: "Systematic review of [topic]" / "Meta-analysis of [topic]"
 
 ## Failure Paths
 
-See `references/failure_paths.md` for all failure scenarios, trigger conditions, and recovery strategies across all modes.
+See `${CLAUDE_PLUGIN_ROOT}/references/failure-paths.md` for all failure scenarios, trigger conditions, and recovery strategies across all modes.
 
 Key failure path summary:
 
@@ -447,8 +447,8 @@ Key failure path summary:
 
 After any research mode is complete, users can optionally activate the `monitoring_agent` to set up post-research literature monitoring. This is not part of the main pipeline — it is an auxiliary capability triggered on demand.
 
-See `agents/monitoring_agent.md` for the detailed agent definition.
-See `references/literature_monitoring_strategies.md` for platform-specific setup guides.
+See `${CLAUDE_PLUGIN_ROOT}/agents/monitoring` for the detailed agent definition.
+See `${CLAUDE_PLUGIN_ROOT}/references/literature-monitoring-strategies.md` for platform-specific setup guides.
 
 **Trigger**: "monitor this topic", "set up alerts", "track new publications on this"
 
@@ -497,19 +497,19 @@ See `academic-pipeline/SKILL.md` for the complete workflow.
 
 | Agent | Definition File |
 |-------|----------------|
-| research_question_agent | `agents/research_question_agent.md` |
-| research_architect_agent | `agents/research_architect_agent.md` |
-| bibliography_agent | `agents/bibliography_agent.md` |
-| source_verification_agent | `agents/source_verification_agent.md` |
-| synthesis_agent | `agents/synthesis_agent.md` |
-| report_compiler_agent | `agents/report_compiler_agent.md` |
-| editor_in_chief_agent | `agents/editor_in_chief_agent.md` |
-| devils_advocate_agent | `agents/devils_advocate_agent.md` |
-| ethics_review_agent | `agents/ethics_review_agent.md` |
-| socratic_mentor_agent | `agents/socratic_mentor_agent.md` |
-| risk_of_bias_agent | `agents/risk_of_bias_agent.md` |
-| meta_analysis_agent | `agents/meta_analysis_agent.md` |
-| monitoring_agent | `agents/monitoring_agent.md` |
+| research_question_agent | `${CLAUDE_PLUGIN_ROOT}/agents/research-question` |
+| research_architect_agent | `${CLAUDE_PLUGIN_ROOT}/agents/research-architect` |
+| bibliography_agent | `${CLAUDE_PLUGIN_ROOT}/agents/bibliography` |
+| source_verification_agent | `${CLAUDE_PLUGIN_ROOT}/agents/source-verification` |
+| synthesis_agent | `${CLAUDE_PLUGIN_ROOT}/agents/synthesis` |
+| report_compiler_agent | `${CLAUDE_PLUGIN_ROOT}/agents/report-compiler` |
+| editor_in_chief_agent | `${CLAUDE_PLUGIN_ROOT}/agents/editor-in-chief` |
+| devils_advocate_agent | `${CLAUDE_PLUGIN_ROOT}/agents/devils-advocate` |
+| ethics_review_agent | `${CLAUDE_PLUGIN_ROOT}/agents/ethics-review` |
+| socratic_mentor_agent | `${CLAUDE_PLUGIN_ROOT}/agents/research-socratic-mentor` |
+| risk_of_bias_agent | `${CLAUDE_PLUGIN_ROOT}/agents/risk-of-bias` |
+| meta_analysis_agent | `${CLAUDE_PLUGIN_ROOT}/agents/meta-analysis` |
+| monitoring_agent | `${CLAUDE_PLUGIN_ROOT}/agents/monitoring` |
 
 ---
 
@@ -517,20 +517,20 @@ See `academic-pipeline/SKILL.md` for the complete workflow.
 
 | Reference | Purpose | Used By |
 |-----------|---------|---------|
-| `references/apa7_style_guide.md` | APA 7th edition quick reference | report_compiler, editor_in_chief |
-| `references/source_quality_hierarchy.md` | Evidence pyramid + grading rubric | source_verification, bibliography |
-| `references/methodology_patterns.md` | Research design templates | research_architect |
-| `references/logical_fallacies.md` | 30+ fallacies catalog | devils_advocate |
-| `references/ethics_checklist.md` | AI disclosure, attribution, dual-use | ethics_review |
-| `references/interdisciplinary_bridges.md` | Cross-discipline connection patterns | synthesis, research_architect |
-| `references/socratic_questioning_framework.md` | 6 types of Socratic questions + 30+ prompt patterns | socratic_mentor |
-| `references/failure_paths.md` | 12 failure scenarios with triggers and recovery paths | all agents |
-| `references/mode_selection_guide.md` | Mode selection flowchart and comparison table | orchestrator |
-| `references/irb_decision_tree.md` | IRB decision tree + Taiwan process + HE quick reference | ethics_review, research_architect |
-| `references/equator_reporting_guidelines.md` | EQUATOR reporting guideline mapping | research_architect, report_compiler |
-| `references/preregistration_guide.md` | Preregistration decision tree + platforms + checklist | research_architect |
-| `references/systematic_review_toolkit.md` | Cochrane v6.4, PRISMA 2020, RoB 2, ROBINS-I, I² guide, GRADE, protocol registration | risk_of_bias, meta_analysis, bibliography, report_compiler |
-| `references/literature_monitoring_strategies.md` | Google Scholar alerts, PubMed alerts, RSS feeds, Retraction Watch, citation tracking, monitoring cadence | monitoring_agent |
+| `${CLAUDE_PLUGIN_ROOT}/references/apa7-guide.md` | APA 7th edition quick reference | report_compiler, editor_in_chief |
+| `${CLAUDE_PLUGIN_ROOT}/references/source-quality-hierarchy.md` | Evidence pyramid + grading rubric | source_verification, bibliography |
+| `${CLAUDE_PLUGIN_ROOT}/references/methodology-patterns.md` | Research design templates | research_architect |
+| `${CLAUDE_PLUGIN_ROOT}/references/logical-fallacies.md` | 30+ fallacies catalog | devils_advocate |
+| `${CLAUDE_PLUGIN_ROOT}/references/ethics-checklist.md` | AI disclosure, attribution, dual-use | ethics_review |
+| `${CLAUDE_PLUGIN_ROOT}/references/interdisciplinary-bridges.md` | Cross-discipline connection patterns | synthesis, research_architect |
+| `${CLAUDE_PLUGIN_ROOT}/references/socratic-questioning-framework.md` | 6 types of Socratic questions + 30+ prompt patterns | socratic_mentor |
+| `${CLAUDE_PLUGIN_ROOT}/references/failure-paths.md` | 12 failure scenarios with triggers and recovery paths | all agents |
+| `${CLAUDE_PLUGIN_ROOT}/references/mode-selection-guide.md` | Mode selection flowchart and comparison table | orchestrator |
+| `${CLAUDE_PLUGIN_ROOT}/references/irb-decision-tree.md` | IRB decision tree + Taiwan process + HE quick reference | ethics_review, research_architect |
+| `${CLAUDE_PLUGIN_ROOT}/references/equator-reporting-guidelines.md` | EQUATOR reporting guideline mapping | research_architect, report_compiler |
+| `${CLAUDE_PLUGIN_ROOT}/references/preregistration-guide.md` | Preregistration decision tree + platforms + checklist | research_architect |
+| `${CLAUDE_PLUGIN_ROOT}/references/systematic-review-toolkit.md` | Cochrane v6.4, PRISMA 2020, RoB 2, ROBINS-I, I² guide, GRADE, protocol registration | risk_of_bias, meta_analysis, bibliography, report_compiler |
+| `${CLAUDE_PLUGIN_ROOT}/references/literature-monitoring-strategies.md` | Google Scholar alerts, PubMed alerts, RSS feeds, Retraction Watch, citation tracking, monitoring cadence | monitoring_agent |
 
 ---
 
@@ -538,12 +538,12 @@ See `academic-pipeline/SKILL.md` for the complete workflow.
 
 | Template | Purpose |
 |----------|---------|
-| `templates/research_brief_template.md` | Quick mode output format |
-| `templates/literature_matrix_template.md` | Source x Theme analysis matrix |
-| `templates/evidence_assessment_template.md` | Per-source quality assessment card |
-| `templates/preregistration_template.md` | OSF standard 21-item preregistration template |
-| `templates/prisma_protocol_template.md` | PRISMA-P 2015 systematic review protocol template |
-| `templates/prisma_report_template.md` | PRISMA 2020 systematic review report template (27 items) |
+| `${CLAUDE_PLUGIN_ROOT}/templates/research-brief.md` | Quick mode output format |
+| `${CLAUDE_PLUGIN_ROOT}/templates/literature-matrix.md` | Source x Theme analysis matrix |
+| `${CLAUDE_PLUGIN_ROOT}/templates/evidence-assessment.md` | Per-source quality assessment card |
+| `${CLAUDE_PLUGIN_ROOT}/templates/preregistration.md` | OSF standard 21-item preregistration template |
+| `${CLAUDE_PLUGIN_ROOT}/templates/prisma-protocol.md` | PRISMA-P 2015 systematic review protocol template |
+| `${CLAUDE_PLUGIN_ROOT}/templates/prisma-report.md` | PRISMA 2020 systematic review report template (27 items) |
 
 ---
 
@@ -590,7 +590,7 @@ Unified definitions to prevent inconsistency across agents:
 | **Minimum Source Count** | full = 15+, quick = 5-8, lit-review = 25+, systematic-review = all eligible (no limit), fact-check = 3+ per claim | bibliography_agent |
 | **Verification Threshold** | 100% DOI check + 50% WebSearch spot-check | source_verification_agent, ethics_review_agent |
 
-> **Cross-Skill Reference**: See `shared/handoff_schemas.md` for inter-stage data exchange formats.
+> **Cross-Skill Reference**: See `${CLAUDE_PLUGIN_ROOT}/shared/handoff-schemas.md` for inter-stage data exchange formats.
 
 ---
 

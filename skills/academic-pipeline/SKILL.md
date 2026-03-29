@@ -102,7 +102,7 @@ I received reviewer comments, help me revise
 9. **Stage 5 FINALIZE** -> MD + DOCX -> ask about LaTeX -> confirm -> PDF -> Stage 6
 10. **Stage 6 PROCESS SUMMARY** -> ask language version -> generate process record MD -> LaTeX -> PDF -> end
 
-See `references/pipeline_state_machine.md` for complete state transition definitions.
+See `${CLAUDE_PLUGIN_ROOT}/references/pipeline-state-machine.md` for complete state transition definitions.
 
 ---
 
@@ -165,9 +165,9 @@ Ready to proceed to Stage [Y]? You can also:
 
 | # | Agent | Role | File |
 |---|-------|------|------|
-| 1 | `pipeline_orchestrator_agent` | Main orchestrator: detects stage, recommends mode, triggers skill, manages transitions | `agents/pipeline_orchestrator_agent.md` |
-| 2 | `state_tracker_agent` | State tracker: records completed stages, produced materials, revision loop count | `agents/state_tracker_agent.md` |
-| 3 | `integrity_verification_agent` | Integrity verifier: 100% reference/citation/data verification | `agents/integrity_verification_agent.md` |
+| 1 | `pipeline_orchestrator_agent` | Main orchestrator: detects stage, recommends mode, triggers skill, manages transitions | `${CLAUDE_PLUGIN_ROOT}/agents/pipeline-orchestrator` |
+| 2 | `state_tracker_agent` | State tracker: records completed stages, produced materials, revision loop count | `${CLAUDE_PLUGIN_ROOT}/agents/state-tracker` |
+| 3 | `integrity_verification_agent` | Integrity verifier: 100% reference/citation/data verification | `${CLAUDE_PLUGIN_ROOT}/agents/integrity-verification` |
 
 ---
 
@@ -502,7 +502,7 @@ Users can say "status" or "pipeline status" at any time to view:
 +=============================================+
 ```
 
-See `templates/pipeline_status_template.md` for the output template.
+See `${CLAUDE_PLUGIN_ROOT}/templates/pipeline-status.md` for the output template.
 
 ---
 
@@ -717,9 +717,9 @@ The final chapter of the process record is a "Collaboration Quality Evaluation" 
 
 | Agent | Definition File |
 |-------|----------------|
-| pipeline_orchestrator_agent | `agents/pipeline_orchestrator_agent.md` |
-| state_tracker_agent | `agents/state_tracker_agent.md` |
-| integrity_verification_agent | `agents/integrity_verification_agent.md` |
+| pipeline_orchestrator_agent | `${CLAUDE_PLUGIN_ROOT}/agents/pipeline-orchestrator` |
+| state_tracker_agent | `${CLAUDE_PLUGIN_ROOT}/agents/state-tracker` |
+| integrity_verification_agent | `${CLAUDE_PLUGIN_ROOT}/agents/integrity-verification` |
 
 ---
 
@@ -727,12 +727,12 @@ The final chapter of the process record is a "Collaboration Quality Evaluation" 
 
 | Reference | Purpose |
 |-----------|---------|
-| `references/pipeline_state_machine.md` | Complete state machine definition: all legal transitions, preconditions, actions |
-| `references/plagiarism_detection_protocol.md` | Phase D originality verification protocol + self-plagiarism + AI text characteristics |
-| `references/mode_advisor.md` | Unified cross-skill decision tree: maps user intent to optimal skill + mode |
-| `references/claim_verification_protocol.md` | Phase E claim verification protocol: claim extraction, source tracing, cross-referencing, verdict taxonomy |
-| `references/team_collaboration_protocol.md` | Multi-person team coordination: role definitions, handoff protocol, version control, conflict resolution |
-| `shared/handoff_schemas.md` | Cross-skill data contracts: 9 schemas for all inter-stage handoff artifacts |
+| `${CLAUDE_PLUGIN_ROOT}/references/pipeline-state-machine.md` | Complete state machine definition: all legal transitions, preconditions, actions |
+| `${CLAUDE_PLUGIN_ROOT}/references/plagiarism-detection-protocol.md` | Phase D originality verification protocol + self-plagiarism + AI text characteristics |
+| `${CLAUDE_PLUGIN_ROOT}/references/mode-advisor.md` | Unified cross-skill decision tree: maps user intent to optimal skill + mode |
+| `${CLAUDE_PLUGIN_ROOT}/references/claim-verification-protocol.md` | Phase E claim verification protocol: claim extraction, source tracing, cross-referencing, verdict taxonomy |
+| `${CLAUDE_PLUGIN_ROOT}/references/team-collaboration-protocol.md` | Multi-person team coordination: role definitions, handoff protocol, version control, conflict resolution |
+| `${CLAUDE_PLUGIN_ROOT}/shared/handoff-schemas.md` | Cross-skill data contracts: 9 schemas for all inter-stage handoff artifacts |
 
 ---
 
@@ -740,7 +740,7 @@ The final chapter of the process record is a "Collaboration Quality Evaluation" 
 
 | Template | Purpose |
 |----------|---------|
-| `templates/pipeline_status_template.md` | Progress Dashboard output template |
+| `${CLAUDE_PLUGIN_ROOT}/templates/pipeline-status.md` | Progress Dashboard output template |
 
 ---
 

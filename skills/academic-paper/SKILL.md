@@ -11,8 +11,8 @@ metadata:
 A general-purpose academic paper writing tool — 12-agent pipeline covering all disciplines, with higher education domain as the default reference.
 
 **v2.5** adds two writing quality features:
-- **Style Calibration** (intake Step 10, optional) — Provide 3+ past papers and the pipeline learns your writing voice (sentence rhythm, vocabulary preferences, citation integration style). Applied as a soft guide during drafting; discipline conventions always take priority. See `shared/style_calibration_protocol.md`.
-- **Writing Quality Check** (`references/writing_quality_check.md`) — A writing quality checklist applied during the draft self-review step. Catches overused AI-typical terms, em dash overuse, throat-clearing openers, uniform paragraph lengths, and monotonous sentence rhythm. These are good writing rules, not detection evasion.
+- **Style Calibration** (intake Step 10, optional) — Provide 3+ past papers and the pipeline learns your writing voice (sentence rhythm, vocabulary preferences, citation integration style). Applied as a soft guide during drafting; discipline conventions always take priority. See `${CLAUDE_PLUGIN_ROOT}/shared/style-calibration-protocol.md`.
+- **Writing Quality Check** (`${CLAUDE_PLUGIN_ROOT}/references/writing-quality-check.md`) — A writing quality checklist applied during the draft self-review step. Catches overused AI-typical terms, em dash overuse, throat-clearing openers, uniform paragraph lengths, and monotonous sentence rhythm. These are good writing rules, not detection evasion.
 
 ## Quick Start
 
@@ -109,7 +109,7 @@ Activate `plan` mode (Socratic chapter-by-chapter guidance) when the user's **in
 LaTeX (.tex + .bib), DOCX (via Pandoc), PDF (via LaTeX or Pandoc), Markdown.
 
 ### Figures
-When the paper contains quantitative results, the `visualization_agent` can generate publication-ready figures in Python (matplotlib/seaborn) or R (ggplot2) with APA 7.0 formatting and colorblind-safe palettes. Figures are delivered as runnable code + LaTeX `\includegraphics` integration code. See `references/statistical_visualization_standards.md` for chart type decision trees and code templates.
+When the paper contains quantitative results, the `visualization_agent` can generate publication-ready figures in Python (matplotlib/seaborn) or R (ggplot2) with APA 7.0 formatting and colorblind-safe palettes. Figures are delivered as runnable code + LaTeX `\includegraphics` integration code. See `${CLAUDE_PLUGIN_ROOT}/references/statistical-visualization-standards.md` for chart type decision trees and code templates.
 
 ### Citation Formats
 APA 7.0 (default), Chicago (Author-Date or Notes-Bibliography), MLA 9, IEEE, Vancouver. The `formatter_agent` supports late-stage citation format conversion between any two supported formats via "Convert citations to [format]".
@@ -222,13 +222,13 @@ User: "Write a paper on [topic]"
 
 ## Operational Modes (9 Modes)
 
-See `references/mode_selection_guide.md` for details.
+See `${CLAUDE_PLUGIN_ROOT}/references/mode-selection-guide.md` for details.
 
 | Mode | Trigger | Agents | Output |
 |------|---------|--------|--------|
 | `full` | "Write a paper" | All 9 (+ 11 if quantitative) | Complete paper draft (with figures if applicable) |
 | `outline-only` | "Paper outline" | 1->2->3 | Detailed outline + evidence map |
-| `revision` | "Revise paper" | 8->5->6 | Revised draft with tracked changes (uses `templates/revision_tracking_template.md`) |
+| `revision` | "Revise paper" | 8->5->6 | Revised draft with tracked changes (uses `${CLAUDE_PLUGIN_ROOT}/templates/revision-tracking.md`) |
 | `abstract-only` | "Write abstract" | 1->7 | Bilingual abstract + keywords |
 | `lit-review` | "Literature review" | 1->2 | Annotated bibliography + synthesis |
 | `format-convert` | "Convert to LaTeX" / "Convert citations to [format]" | 9 only | Formatted document; includes citation format conversion (APA 7 / Chicago / MLA / IEEE / Vancouver) |
@@ -358,7 +358,7 @@ Output: Chapter Plan + INSIGHT Collection
 
 ## Failure Paths
 
-See `references/failure_paths.md` for details. Quick reference:
+See `${CLAUDE_PLUGIN_ROOT}/references/failure-paths.md` for details. Quick reference:
 
 | Failure Scenario | Handling Strategy |
 |---------|---------|
@@ -381,7 +381,7 @@ See `academic-pipeline/SKILL.md` for the complete workflow.
 
 ## Phase 0: Configuration Interview
 
-See `agents/intake_agent.md` for the complete field definitions of the Phase 0 configuration interview. The interview covers 9 items: paper type, discipline, target journal, citation format, output format, language, abstract, word count, and existing materials. Outputs a Paper Configuration Record, awaiting user confirmation.
+See `${CLAUDE_PLUGIN_ROOT}/agents/intake` for the complete field definitions of the Phase 0 configuration interview. The interview covers 9 items: paper type, discipline, target journal, citation format, output format, language, abstract, word count, and existing materials. Outputs a Paper Configuration Record, awaiting user confirmation.
 
 ---
 
@@ -389,18 +389,18 @@ See `agents/intake_agent.md` for the complete field definitions of the Phase 0 c
 
 | Agent | Definition File |
 |-------|----------------|
-| intake_agent | `agents/intake_agent.md` |
-| literature_strategist_agent | `agents/literature_strategist_agent.md` |
-| structure_architect_agent | `agents/structure_architect_agent.md` |
-| argument_builder_agent | `agents/argument_builder_agent.md` |
-| draft_writer_agent | `agents/draft_writer_agent.md` |
-| citation_compliance_agent | `agents/citation_compliance_agent.md` |
-| abstract_bilingual_agent | `agents/abstract_bilingual_agent.md` |
-| peer_reviewer_agent | `agents/peer_reviewer_agent.md` |
-| formatter_agent | `agents/formatter_agent.md` |
-| socratic_mentor_agent | `agents/socratic_mentor_agent.md` |
-| visualization_agent | `agents/visualization_agent.md` |
-| revision_coach_agent | `agents/revision_coach_agent.md` |
+| intake_agent | `${CLAUDE_PLUGIN_ROOT}/agents/intake` |
+| literature_strategist_agent | `${CLAUDE_PLUGIN_ROOT}/agents/literature-strategist` |
+| structure_architect_agent | `${CLAUDE_PLUGIN_ROOT}/agents/structure-architect` |
+| argument_builder_agent | `${CLAUDE_PLUGIN_ROOT}/agents/argument-builder` |
+| draft_writer_agent | `${CLAUDE_PLUGIN_ROOT}/agents/draft-writer` |
+| citation_compliance_agent | `${CLAUDE_PLUGIN_ROOT}/agents/citation-compliance` |
+| abstract_bilingual_agent | `${CLAUDE_PLUGIN_ROOT}/agents/abstract-bilingual` |
+| peer_reviewer_agent | `${CLAUDE_PLUGIN_ROOT}/agents/peer-reviewer` |
+| formatter_agent | `${CLAUDE_PLUGIN_ROOT}/agents/formatter` |
+| socratic_mentor_agent | `${CLAUDE_PLUGIN_ROOT}/agents/paper-socratic-mentor` |
+| visualization_agent | `${CLAUDE_PLUGIN_ROOT}/agents/visualization` |
+| revision_coach_agent | `${CLAUDE_PLUGIN_ROOT}/agents/revision-coach` |
 
 ---
 
@@ -408,23 +408,20 @@ See `agents/intake_agent.md` for the complete field definitions of the Phase 0 c
 
 | Reference | Purpose | Used By |
 |-----------|---------|---------|
-| `references/apa7_extended_guide.md` | APA 7th extended guide (extends deep-research version) | citation_compliance, draft_writer, formatter |
-| `references/apa7_chinese_citation_guide.md` | APA 7.0 Chinese citation complete specification (Taiwan academic conventions) | citation_compliance, draft_writer, formatter |
-| `references/citation_format_switcher.md` | Multi-citation format switching rules (including Chinese formats) | citation_compliance, formatter |
-| `references/paper_structure_patterns.md` | 6 paper structure patterns | structure_architect, intake |
-| `references/academic_writing_style.md` | Academic writing style guide | draft_writer, peer_reviewer |
-| `references/hei_domain_glossary.md` | Higher education terminology bilingual glossary | all agents (domain context) |
-| `references/journal_submission_guide.md` | Journal submission guide | formatter, intake |
-| `references/abstract_writing_guide.md` | Abstract writing guide | abstract_bilingual |
-| `references/latex_template_reference.md` | LaTeX template reference | formatter |
-| `references/failure_paths.md` | Failure path map (12 scenarios + handling strategies) | all agents |
-| `references/mode_selection_guide.md` | 8 mode selection guide + transition paths | intake |
-| `references/credit_authorship_guide.md` | CRediT 14 roles + ICMJE + AI policy + contribution matrix | intake, formatter, draft_writer |
-| `references/funding_statement_guide.md` | Taiwan/international funding formats + statement templates | intake, formatter, draft_writer |
-| `references/statistical_visualization_standards.md` | APA 7.0 figure guidelines, accessible color palettes, chart type decision tree, matplotlib/ggplot2 code templates | visualization |
-
-Also references from `deep-research`:
-- `deep-research/references/apa7_style_guide.md` — base APA 7 reference (this skill extends, not duplicates)
+| `${CLAUDE_PLUGIN_ROOT}/references/apa7-guide.md` | APA 7th extended guide (extends deep-research version) | citation_compliance, draft_writer, formatter |
+| `${CLAUDE_PLUGIN_ROOT}/references/apa7-chinese-citation-guide.md` | APA 7.0 Chinese citation complete specification (Taiwan academic conventions) | citation_compliance, draft_writer, formatter |
+| `${CLAUDE_PLUGIN_ROOT}/references/citation-format-switcher.md` | Multi-citation format switching rules (including Chinese formats) | citation_compliance, formatter |
+| `${CLAUDE_PLUGIN_ROOT}/references/paper-structure-patterns.md` | 6 paper structure patterns | structure_architect, intake |
+| `${CLAUDE_PLUGIN_ROOT}/references/academic-writing-style.md` | Academic writing style guide | draft_writer, peer_reviewer |
+| `${CLAUDE_PLUGIN_ROOT}/references/hei-domain-glossary.md` | Higher education terminology bilingual glossary | all agents (domain context) |
+| `${CLAUDE_PLUGIN_ROOT}/references/journal-submission-guide.md` | Journal submission guide | formatter, intake |
+| `${CLAUDE_PLUGIN_ROOT}/references/abstract-writing-guide.md` | Abstract writing guide | abstract_bilingual |
+| `${CLAUDE_PLUGIN_ROOT}/references/latex-template-reference.md` | LaTeX template reference | formatter |
+| `${CLAUDE_PLUGIN_ROOT}/references/failure-paths.md` | Failure path map (12 scenarios + handling strategies) | all agents |
+| `${CLAUDE_PLUGIN_ROOT}/references/mode-selection-guide.md` | 8 mode selection guide + transition paths | intake |
+| `${CLAUDE_PLUGIN_ROOT}/references/credit-authorship-guide.md` | CRediT 14 roles + ICMJE + AI policy + contribution matrix | intake, formatter, draft_writer |
+| `${CLAUDE_PLUGIN_ROOT}/references/funding-statement-guide.md` | Taiwan/international funding formats + statement templates | intake, formatter, draft_writer |
+| `${CLAUDE_PLUGIN_ROOT}/references/statistical-visualization-standards.md` | APA 7.0 figure guidelines, accessible color palettes, chart type decision tree, matplotlib/ggplot2 code templates | visualization |
 
 ---
 
@@ -432,17 +429,17 @@ Also references from `deep-research`:
 
 | Template | Purpose |
 |----------|---------|
-| `templates/imrad_template.md` | IMRaD structure template |
-| `templates/literature_review_template.md` | Literature review template |
-| `templates/case_study_template.md` | Case study template |
-| `templates/theoretical_paper_template.md` | Theoretical paper template |
-| `templates/policy_brief_template.md` | Policy brief template |
-| `templates/conference_paper_template.md` | Conference paper template |
-| `templates/latex_article_template.tex` | LaTeX starter template |
-| `templates/bilingual_abstract_template.md` | Bilingual abstract template |
-| `templates/credit_statement_template.md` | Author x Role contribution matrix + CRediT statement output |
-| `templates/funding_statement_template.md` | Funding source registration + statement output |
-| `templates/revision_tracking_template.md` | Systematic tracker for reviewer comments and resolutions during revision (4 status types: RESOLVED, DELIBERATE_LIMITATION, UNRESOLVABLE, REVIEWER_DISAGREE) |
+| `${CLAUDE_PLUGIN_ROOT}/templates/imrad.md` | IMRaD structure template |
+| `${CLAUDE_PLUGIN_ROOT}/templates/literature-review.md` | Literature review template |
+| `${CLAUDE_PLUGIN_ROOT}/templates/case-study.md` | Case study template |
+| `${CLAUDE_PLUGIN_ROOT}/templates/theoretical-paper.md` | Theoretical paper template |
+| `${CLAUDE_PLUGIN_ROOT}/templates/policy-brief.md` | Policy brief template |
+| `${CLAUDE_PLUGIN_ROOT}/templates/conference-paper.md` | Conference paper template |
+| `${CLAUDE_PLUGIN_ROOT}/templates/latex-article.tex` | LaTeX starter template |
+| `${CLAUDE_PLUGIN_ROOT}/templates/bilingual-abstract.md` | Bilingual abstract template |
+| `${CLAUDE_PLUGIN_ROOT}/templates/credit-statement.md` | Author x Role contribution matrix + CRediT statement output |
+| `${CLAUDE_PLUGIN_ROOT}/templates/funding-statement.md` | Funding source registration + statement output |
+| `${CLAUDE_PLUGIN_ROOT}/templates/revision-tracking.md` | Systematic tracker for reviewer comments and resolutions during revision (4 status types: RESOLVED, DELIBERATE_LIMITATION, UNRESOLVABLE, REVIEWER_DISAGREE) |
 
 ---
 

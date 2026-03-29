@@ -330,7 +330,7 @@ Phase 2: Does not produce full Editorial Decision; enters dialogue mode instead
 
 ## Review Output Format
 
-Each reviewer's report structure is detailed in `templates/peer_review_report_template.md`.
+Each reviewer's report structure is detailed in `${CLAUDE_PLUGIN_ROOT}/templates/peer-review-report.md`.
 
 ### Devil's Advocate Report Structure (Special Format)
 
@@ -345,7 +345,7 @@ The Devil's Advocate uses a dedicated format, not the standard reviewer template
 
 ## Editorial Decision Format
 
-The Editorial Decision Letter structure is detailed in `templates/editorial_decision_template.md`.
+The Editorial Decision Letter structure is detailed in `${CLAUDE_PLUGIN_ROOT}/templates/editorial-decision.md`.
 
 ---
 
@@ -389,13 +389,13 @@ Step 9: academic-paper (format-convert) -> Final paper
 
 | Agent | Definition File |
 |-------|----------------|
-| field_analyst_agent | `agents/field_analyst_agent.md` |
-| eic_agent | `agents/eic_agent.md` |
-| methodology_reviewer_agent | `agents/methodology_reviewer_agent.md` |
-| domain_reviewer_agent | `agents/domain_reviewer_agent.md` |
-| perspective_reviewer_agent | `agents/perspective_reviewer_agent.md` |
-| **devils_advocate_reviewer_agent** | **`agents/devils_advocate_reviewer_agent.md`** |
-| editorial_synthesizer_agent | `agents/editorial_synthesizer_agent.md` |
+| field_analyst_agent | `${CLAUDE_PLUGIN_ROOT}/agents/field-analyst` |
+| eic_agent | `${CLAUDE_PLUGIN_ROOT}/agents/eic` |
+| methodology_reviewer_agent | `${CLAUDE_PLUGIN_ROOT}/agents/methodology-reviewer` |
+| domain_reviewer_agent | `${CLAUDE_PLUGIN_ROOT}/agents/domain-reviewer` |
+| perspective_reviewer_agent | `${CLAUDE_PLUGIN_ROOT}/agents/perspective-reviewer` |
+| **devils_advocate_reviewer_agent** | **`${CLAUDE_PLUGIN_ROOT}/agents/devils-advocate-reviewer`** |
+| editorial_synthesizer_agent | `${CLAUDE_PLUGIN_ROOT}/agents/editorial-synthesizer` |
 
 ---
 
@@ -403,11 +403,11 @@ Step 9: academic-paper (format-convert) -> Final paper
 
 | Reference | Purpose | Used By |
 |-----------|---------|---------|
-| `references/review_criteria_framework.md` | Structured review criteria framework (differentiated by paper type) | all reviewers |
-| `references/top_journals_by_field.md` | Top journal lists for major academic fields (EIC role calibration) | field_analyst, eic |
-| `references/editorial_decision_standards.md` | Accept/Minor/Major/Reject criteria and decision matrix | eic, editorial_synthesizer |
-| `references/statistical_reporting_standards.md` | Statistical reporting standards + APA 7.0 format quick reference + red flag list | methodology_reviewer |
-| `references/quality_rubrics.md` | Calibrated 0-100 scoring rubrics for 7 review dimensions with decision mapping | all reviewers |
+| `${CLAUDE_PLUGIN_ROOT}/references/review-criteria-framework.md` | Structured review criteria framework (differentiated by paper type) | all reviewers |
+| `${CLAUDE_PLUGIN_ROOT}/references/top-journals-by-field.md` | Top journal lists for major academic fields (EIC role calibration) | field_analyst, eic |
+| `${CLAUDE_PLUGIN_ROOT}/references/editorial-decision-standards.md` | Accept/Minor/Major/Reject criteria and decision matrix | eic, editorial_synthesizer |
+| `${CLAUDE_PLUGIN_ROOT}/references/statistical-reporting-standards.md` | Statistical reporting standards + APA 7.0 format quick reference + red flag list | methodology_reviewer |
+| `${CLAUDE_PLUGIN_ROOT}/references/quality-rubrics.md` | Calibrated 0-100 scoring rubrics for 7 review dimensions with decision mapping | all reviewers |
 
 ---
 
@@ -415,9 +415,9 @@ Step 9: academic-paper (format-convert) -> Final paper
 
 | Template | Purpose |
 |----------|---------|
-| `templates/peer_review_report_template.md` | Review report template used by each reviewer |
-| `templates/editorial_decision_template.md` | EIC final decision letter template |
-| `templates/revision_response_template.md` | Revision response template for authors (R->A->C format) |
+| `${CLAUDE_PLUGIN_ROOT}/templates/peer-review-report.md` | Review report template used by each reviewer |
+| `${CLAUDE_PLUGIN_ROOT}/templates/editorial-decision.md` | EIC final decision letter template |
+| `${CLAUDE_PLUGIN_ROOT}/templates/revision-response.md` | Revision response template for authors (R->A->C format) |
 
 ---
 
