@@ -4,7 +4,7 @@ description: "Fully autonomous academic research pipeline. Takes a research topi
 metadata:
   version: "1.0.0"
   last_updated: "2026-03-26"
-  depends_on: "deep-research, academic-paper, academic-paper-reviewer, superpowers"
+  depends_on: "auto-academic"
 ---
 
 # Auto-Academic v1.0 — Fully Autonomous Academic Research Pipeline
@@ -24,9 +24,7 @@ A fully autonomous orchestrator that takes a research topic and target venue, th
 
 ## Dependencies
 
-This skill requires the following to be installed:
-- `academic-research-skills` plugin (deep-research, academic-paper, academic-paper-reviewer)
-- `superpowers` plugin (writing-plans, executing-plans, dispatching-parallel-agents)
+All required skills are bundled within this plugin. No external plugin dependencies.
 
 ## Invocation
 
@@ -54,7 +52,7 @@ Extract topic and venue from the user's message. If either is missing, infer fro
 
 ### Step 2: Venue Profile Lookup
 
-Read `${CLAUDE_PLUGIN_ROOT}/skills/auto-academic/references/venue-profiles.md`. Match the user's venue to a profile category. If no match, use WebSearch to research the venue, then assign the closest category.
+Read `${CLAUDE_PLUGIN_ROOT}/references/venue-profiles.md`. Match the user's venue to a profile category. If no match, use WebSearch to research the venue, then assign the closest category.
 
 Record the venue profile settings:
 - Citation style
@@ -73,7 +71,7 @@ mkdir -p "${WORKSPACE}"/{research,experiments/{specs,code,results},paper/latex,r
 
 ### Step 4: Initialize State
 
-Copy `${CLAUDE_PLUGIN_ROOT}/skills/auto-academic/templates/pipeline-state.json` to `${WORKSPACE}/pipeline-state.json`. Fill in:
+Copy `${CLAUDE_PLUGIN_ROOT}/templates/pipeline-state.json` to `${WORKSPACE}/pipeline-state.json`. Fill in:
 - `topic`: the parsed topic
 - `venue`: the parsed venue
 - `created_at`: current timestamp
@@ -81,8 +79,8 @@ Copy `${CLAUDE_PLUGIN_ROOT}/skills/auto-academic/templates/pipeline-state.json` 
 
 ### Step 5: Initialize Logging
 
-Copy `${CLAUDE_PLUGIN_ROOT}/skills/auto-academic/templates/process-log.md` content to `${WORKSPACE}/process-log.md`. Fill in topic, venue, timestamp.
-Copy `${CLAUDE_PLUGIN_ROOT}/skills/auto-academic/templates/results-tsv-header.tsv` to `${WORKSPACE}/experiments/results.tsv`.
+Copy `${CLAUDE_PLUGIN_ROOT}/templates/process-log.md` content to `${WORKSPACE}/process-log.md`. Fill in topic, venue, timestamp.
+Copy `${CLAUDE_PLUGIN_ROOT}/templates/results-tsv-header.tsv` to `${WORKSPACE}/experiments/results.tsv`.
 
 ### Step 6: Initialize Git
 
@@ -107,7 +105,7 @@ Proceed immediately to Stage 1.
 
 ### Step 1: Invoke deep-research
 
-Trigger the `deep-research` skill in `full` mode with the topic. Provide:
+Trigger the `auto-academic:deep-research` skill in `full` mode with the topic. Provide:
 - The parsed topic as the research question seed
 - The venue profile for calibrating research depth
 
@@ -163,15 +161,15 @@ Invoke the `experiment-planner` agent with:
 - `research/hypotheses.md`
 - `research/methodology.md`
 - Venue profile experiment expectations
-- `${CLAUDE_PLUGIN_ROOT}/skills/auto-academic/references/experiment-patterns.md`
+- `${CLAUDE_PLUGIN_ROOT}/references/experiment-patterns.md`
 
 The agent produces one experiment spec per hypothesis, saved to `experiments/specs/`.
 
 ### Step 2: Implement Experiments
 
-For each experiment spec, invoke the `superpowers:writing-plans` skill to create an implementation plan, then invoke `superpowers:executing-plans` to implement the code.
+For each experiment spec, invoke the `auto-academic:writing-plans` skill to create an implementation plan, then invoke `auto-academic:executing-plans` to implement the code.
 
-If multiple experiments are independent (no shared data dependencies), use `superpowers:dispatching-parallel-agents` to implement them concurrently.
+If multiple experiments are independent (no shared data dependencies), use `auto-academic:dispatching-parallel-agents` to implement them concurrently.
 
 Each experiment's code is saved to `experiments/code/{hypothesis_id}/`.
 
@@ -222,7 +220,7 @@ The agent updates `experiments/claim-evaluation.md`.
 
 ### Step 6: Check Convergence
 
-After evaluating results, invoke the `convergence-judge` agent for the inner loop. The agent should consult `${CLAUDE_PLUGIN_ROOT}/skills/auto-academic/references/convergence-criteria.md` for detailed convergence rules.
+After evaluating results, invoke the `convergence-judge` agent for the inner loop. The agent should consult `${CLAUDE_PLUGIN_ROOT}/references/convergence-criteria.md` for detailed convergence rules.
 - If `CONVERGE`: exit the inner loop, proceed to WRITE
 - If `CONTINUE`: identify which hypothesis needs re-running, refine the experiment spec, go back to Step 3
 - If `FORCE_CONVERGE`: log warning, proceed to WRITE with best results
@@ -253,7 +251,7 @@ Gather all materials for the paper-writing skill:
 
 ### Step 2: Invoke academic-paper
 
-Trigger the `academic-paper` skill in `full` mode. Provide all gathered materials and instruct it to:
+Trigger the `auto-academic:academic-paper` skill in `full` mode. Provide all gathered materials and instruct it to:
 - Use the venue's citation style and format
 - Include experiment methodology in the Methods section
 - Include experiment results with tables/figures in the Results section
@@ -291,7 +289,7 @@ If integrity check passes after 3 rounds but still has issues: log warning, proc
 
 ### Step 2: Peer Review
 
-Invoke the `academic-paper-reviewer` skill. The review mode depends on the current round:
+Invoke the `auto-academic:academic-paper-reviewer` skill. The review mode depends on the current round:
 
 | Round | Mode |
 |-------|------|
@@ -303,7 +301,7 @@ Save all reviewer reports to `reviews/round-{N}/`.
 
 ### Step 3: Auto-Decision
 
-Read the editorial decision from the review output. Invoke the `convergence-judge` agent for the outer loop. The agent should consult `${CLAUDE_PLUGIN_ROOT}/skills/auto-academic/references/convergence-criteria.md` for convergence rules and `${CLAUDE_PLUGIN_ROOT}/skills/auto-academic/references/escalation-protocol.md` for escalation decision logic.
+Read the editorial decision from the review output. Invoke the `convergence-judge` agent for the outer loop. The agent should consult `${CLAUDE_PLUGIN_ROOT}/references/convergence-criteria.md` for convergence rules and `${CLAUDE_PLUGIN_ROOT}/references/escalation-protocol.md` for escalation decision logic.
 
 Based on the decision:
 
@@ -312,7 +310,7 @@ Based on the decision:
 - Proceed to Stage 5 (FINALIZE)
 
 **REVISE_AND_CONVERGE (Minor, non-structural):**
-- Invoke `academic-paper` in `revision` mode with the review comments
+- Invoke `auto-academic:academic-paper` in `revision` mode with the review comments
 - Save revised draft to `paper/draft-v{N+1}.md`
 - Save response to reviewers to `reviews/response-to-reviewers/round-{N}-response.md`
 - Run a `re-review` to confirm
@@ -320,7 +318,7 @@ Based on the decision:
 - Otherwise: continue the loop
 
 **CONTINUE (Minor or Major, needs revision):**
-- Invoke `academic-paper` in `revision` mode with the review comments
+- Invoke `auto-academic:academic-paper` in `revision` mode with the review comments
 - Save revised draft to `paper/draft-v{N+1}.md`
 - Save response to reviewers to `reviews/response-to-reviewers/round-{N}-response.md`
 - Git commit: `git add paper/ reviews/ && git commit -m "feat: revision round {N} — addressing {decision} revision comments"`
@@ -365,7 +363,7 @@ Run `integrity_verification_agent` one final time on the accepted/force-finalize
 
 ### Step 2: Format Conversion
 
-Invoke `academic-paper` in `format-convert` mode:
+Invoke `auto-academic:academic-paper` in `format-convert` mode:
 - Generate LaTeX output to `paper/latex/paper.tex`
 - Compile to PDF: `paper/latex/paper.pdf`
 - If the venue requires DOCX: also generate `paper/paper.docx`
