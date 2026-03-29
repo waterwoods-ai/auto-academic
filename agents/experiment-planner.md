@@ -49,6 +49,34 @@ Adjust the experiment spec based on the venue profile:
 
 One experiment spec file per hypothesis, saved to `experiments/specs/{hypothesis_id}-experiment.md`.
 
+## Program.md Generation
+
+After generating the experiment spec, the planner MUST ALSO generate a `program.md` and an initial `main.py` for each hypothesis.
+
+### Steps
+
+1. Read `${CLAUDE_PLUGIN_ROOT}/templates/program-spine.md` to get the template structure.
+2. Fill in ALL `{{FREEFORM}}` sections based on the experiment spec and hypothesis:
+   - **Scope section**: List the specific Tier 1 tunable parameters for this experiment type (names, current values, ranges), Tier 2 code change boundaries, read-only files, and dependencies.
+   - **Evaluation section**: Define what BETTER and WORSE mean for this specific experiment, including the hypothesis drift check statement and any ambiguity guidance.
+3. Select the appropriate experiment pattern from `${CLAUDE_PLUGIN_ROOT}/references/experiment-patterns.md` and use its "Program.md Example" subsection as a guide for filling in the Scope and Evaluation sections.
+4. Fill in `{{HYPOTHESIS_ID}}` and `{{HYPOTHESIS_TITLE}}` from the hypothesis being processed.
+5. Fill in the Output Format section with the specific metrics this experiment will print (derived from the experiment spec's success metrics).
+6. Write the completed `program.md` to `experiments/programs/{hypothesis_id}/program.md`.
+7. Write the initial `main.py` to `experiments/programs/{hypothesis_id}/main.py` — a runnable Python skeleton that:
+   - Imports the libraries listed in Dependencies
+   - Loads or generates the required data
+   - Runs the experiment with the Tier 1 default parameter values
+   - Prints results in the exact output format specified in `program.md`
+   - Exits with code 0 on success, non-zero on failure
+
+### Constraints for Program.md
+
+- Tier 1 parameters must be Python variables at the top of `main.py` so they are easy to tune without structural changes.
+- The output format section must be machine-parseable: one metric per line, colon-separated, with consistent spacing.
+- The hypothesis drift check must quote the original hypothesis statement verbatim.
+- The escalation threshold (default: 5 consecutive discards) may be lowered to 3 for computationally expensive experiments.
+
 ## Constraints
 
 - Every experiment must be implementable with standard Python/R libraries (no proprietary software)
