@@ -1,9 +1,13 @@
 {
-  "version": "1.0.0",
+  "version": "2.0.0",
   "topic": "",
   "venue": "",
   "created_at": "",
   "current_stage": "INIT",
+  "material_passport": {
+    "entry_point": "INIT",
+    "provenance": []
+  },
   "stages": {
     "INIT": { "status": "pending", "started_at": null, "completed_at": null },
     "RESEARCH": { "status": "pending", "started_at": null, "completed_at": null, "mode": "full" },
@@ -14,9 +18,19 @@
       "inner_loop_iteration": 0,
       "max_inner_iterations": 10,
       "hypotheses": [],
-      "experiment_runs": []
+      "experiment_runs": [],
+      "programs": []
     },
     "WRITE": { "status": "pending", "started_at": null, "completed_at": null, "draft_version": 0 },
+    "INTEGRITY": {
+      "status": "pending",
+      "started_at": null,
+      "completed_at": null,
+      "verification_pass": false,
+      "retry_count": 0,
+      "max_retries": 3,
+      "phases_passed": []
+    },
     "REVIEW": {
       "status": "pending",
       "started_at": null,
@@ -25,7 +39,16 @@
       "max_outer_rounds": 5,
       "escalation_count": 0,
       "max_escalations": 1,
-      "decisions": []
+      "decisions": [],
+      "checkpoint_mode": "FULL"
+    },
+    "FINAL_INTEGRITY": {
+      "status": "pending",
+      "started_at": null,
+      "completed_at": null,
+      "verification_pass": false,
+      "retry_count": 0,
+      "max_retries": 3
     },
     "FINALIZE": { "status": "pending", "started_at": null, "completed_at": null }
   },
@@ -34,16 +57,21 @@
     "methodology": null,
     "bibliography": null,
     "synthesis": null,
+    "style_calibration": null,
     "hypotheses": null,
     "experiment_specs": [],
     "experiment_results": [],
     "claim_evaluation": null,
     "paper_drafts": [],
-    "integrity_reports": [],
+    "integrity_reports": {
+      "pre_review": null,
+      "final": null
+    },
     "review_reports": [],
     "revision_roadmaps": [],
     "responses_to_reviewers": [],
     "final_paper": null,
+    "process_record": null,
     "process_log": null
   }
 }
